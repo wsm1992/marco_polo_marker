@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Player, type: :model do
-  let(:user){ User.new('user') }
-  let(:role){ Role.new('role') }
-  subject{ Player.new(user, role, 50, false) }
+  let(:user){ User.new(name: 'user') }
+  let(:role){ Role.new(name: 'role') }
+  subject{ Player.new(user: user, role: role, score: 50, is_last_traveller: false) }
 
   it { is_expected.to respond_to(:user) }
   it { is_expected.to respond_to(:role) }

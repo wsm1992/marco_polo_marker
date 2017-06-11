@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Role, type: :model do
-  subject{ Role.new('Marco Polo') }
+  subject{ Role.new(name: 'Marco Polo') }
 
   it { is_expected.to respond_to(:name) }
 

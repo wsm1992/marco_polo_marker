@@ -14,12 +14,12 @@
 ActiveRecord::Schema.define(version: 20170611192542) do
 
   create_table "games", force: :cascade do |t|
-    t.integer  "first_player"
-    t.integer  "second_player"
-    t.integer  "third_player"
-    t.integer  "fourth_player"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "first_player_id"
+    t.integer  "second_player_id"
+    t.integer  "third_player_id"
+    t.integer  "fourth_player_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "players", force: :cascade do |t|

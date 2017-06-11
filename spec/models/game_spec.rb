@@ -4,17 +4,18 @@ RSpec.describe Game, type: :model do
   let(:users){ [] }
   let(:roles){ [] }
   let(:players){ [] }
+  subject{ Game.new }
   before do
     4.times do |i|
-      user = User.new("User#{i}")
-      role = Role.new("Role#{i}")
-      player = Player.new(user, role, 50, false)
+      user = User.create(name: "User#{i}")
+      role = Role.create(name: "Role#{i}")
+      player = Player.create(user: user, role: role, score: 50, is_last_traveller: false)
       users << user
       roles << role
       players << player
     end
+    subject.players = players
   end
-  subject{ Game.new(players[0], players[1], players[2], players[3]) }
 
   it 'get players' do
     4.times do |i|
