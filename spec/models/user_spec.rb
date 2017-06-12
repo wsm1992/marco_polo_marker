@@ -8,3 +8,4 @@ RSpec.describe User, type: :model do
   it 'get the name' do
     expect(subject.name).to eq 'test'
   end
+end
