@@ -48,3 +48,8 @@ end
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'
 end
+
+group :production do
+  gem 'unicorn'
+  gem 'pg'
+end
