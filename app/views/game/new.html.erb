@@ -1,2 +1,17 @@
 <h1>Game#new</h1>
-<p>Find me in app/views/game/new.html.erb</p>
+<%= form_for @game, url: {action: "create"} do|f| %>
+  <% (1..4).each do |i| %>
+    <tr>
+      <td><%= "#{i}."%></td>
+      <td>邊個玩:</td>
+      <td><%= select("user", i, User.all.collect {|u| [ u.name, u.id ] }, {selected: i})%></td>
+      <td>邊個角色:</td>
+      <td><%= select("role", i, Role.all.collect {|u| [ u.name, u.id ] }, {selected: i}) %></td>
+      <td>分數:</td>
+      <td><%= number_field("score", i, {value: 50}) %></td>
+      <td>是否最後去旅行:</td>
+      <td><%= check_box("last_travller",  i) %></td>
+    </tr>
+    <br/>
+  <% end %>
+<% end %>
