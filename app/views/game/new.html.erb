@@ -6,7 +6,7 @@
       <td>邊個玩:</td>
       <td><%= select("user", i, User.all.collect {|u| [ u.name, u.id ] }, {selected: i + 1, include_blank: true})%></td>
       <td>邊個角色:</td>
-      <td><%= select("role", i, Role.all.collect {|u| [ u.name, u.id ] }, {selected: i}) %></td>
+      <td><%= select("role", i, Role.all.collect {|u| [ u.name, u.id ] }, {selected: i + 1}) %></td>
       <td>分數:</td>
       <td><%= number_field("score", i, {value: 50}) %></td>
       <td>是否最後去旅行:</td>
