@@ -14,3 +14,11 @@ Role.where(id: 1, name: '控骰').first_or_create
 Role.where(id: 2, name: '攞合約').first_or_create
 Role.where(id: 3, name: '疊骰').first_or_create
 Role.where(id: 4, name: '資源王').first_or_create
+Role.where(id: 5, name: '跳跳跳').first_or_create
+Role.where(id: 6, name: '公主').first_or_create
+Role.where(id: 7, name: '成吉思汗').first_or_create
+Role.where(id: 8, name: '馬可波羅').first_or_create
+Role.where(id: 9, name: '禮物佬').first_or_create
+Role.where(id: 10, name: '起屋佬').first_or_create
+Role.where(id: 11, name: '強盜').first_or_create
+Role.where(id: 12, name: '六張卡').first_or_create
