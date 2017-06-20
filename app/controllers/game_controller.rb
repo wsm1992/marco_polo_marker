@@ -16,6 +16,7 @@ class GameController < ApplicationController
     game = Game.new
     game.players = players
     game.save!
+    @game = game
   end
 
   def list

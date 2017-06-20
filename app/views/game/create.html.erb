@@ -1,3 +1,12 @@
 <h1>Game#create</h1>
-<p>Find me in app/views/game/create.html.erb</p>
-<%= params %>
+<h3>確認:</h3>
+<% game = @game %>
+<tr>
+  <td><% player_info(game.players[0]) %></td>
+  <td><% player_info(game.players[1]) %></td>
+  <td><% player_info(game.players[2]) %></td>
+  <td><% player_info(game.players[3]) %></td>
+</tr>
+<br/>
+<br/>
+<%= button_to("返回",game_list_path, method: :get) %>
