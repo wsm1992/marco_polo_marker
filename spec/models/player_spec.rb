@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Player, type: :model do
   let(:user){ User.new(name: 'user') }
   let(:role){ Role.new(name: 'role') }
-  subject{ Player.new(user: user, role: role, score: 50, is_last_traveller: false) }
+  subject{ Player.new(user: user, role: role, score: 50, is_last_traveller: false, is_first_mover: true) }
 
   it { is_expected.to respond_to(:user) }
   it { is_expected.to respond_to(:role) }
@@ -24,5 +24,9 @@ RSpec.describe Player, type: :model do
 
   it 'get the is_last_traveller' do
     expect(subject.is_last_traveller).to eq false
+  end
+
+  it 'get the is_last_traveller' do
+    expect(subject.is_first_mover).to eq true
   end
 end

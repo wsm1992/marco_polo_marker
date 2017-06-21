@@ -27,7 +27,7 @@ RSpec.describe Game, type: :model do
 
   describe 'Game' do
     subject{ Game }
-    let(:params){ {"user"=>{"0"=>"1", "1"=>"2", "2"=>"3", "3"=>"4"}, "role"=>{"0"=>"1", "1"=>"2", "2"=>"3", "3"=>"4"}, "score"=>{"0"=>"50", "1"=>"50", "2"=>"50", "3"=>"50"}, "is_last_traveller"=>{"0"=>"0", "1"=>"0", "2"=>"0", "3"=>"0"}} }
+    let(:params){ {"user"=>{"0"=>"1", "1"=>"2", "2"=>"3", "3"=>"4"}, "role"=>{"0"=>"1", "1"=>"2", "2"=>"3", "3"=>"4"}, "score"=>{"0"=>"50", "1"=>"50", "2"=>"50", "3"=>"50"}, "is_last_traveller"=>{"0"=>"0", "1"=>"0", "2"=>"0", "3"=>"0"}, "is_first_mover"=>{"0"=>"1", "1"=>"0", "2"=>"0", "3"=>"0"}} }
 
     it 'create by params' do
       game = Game.create_by_params(params)
@@ -37,6 +37,7 @@ RSpec.describe Game, type: :model do
         expect(player.role.id).to eq params["role"][i.to_s].to_i
         expect(player.score).to eq params["score"][i.to_s].to_i
         expect(player.is_last_traveller).to eq (params["is_last_traveller"][i.to_s] == "1")
+        expect(player.is_first_mover).to eq (params["is_first_mover"][i.to_s] == "1")
       end
     end
 
@@ -59,6 +60,12 @@ RSpec.describe Game, type: :model do
       params["is_last_traveller"]["0"] = "1"
       params["is_last_traveller"]["1"] = "1"
       expect{ Game.create_by_params(params) }.to raise_error("duplicate last traveller")
+    end
+
+    it 'create fails with duplicate first mover' do
+      params["is_first_mover"]["0"] = "1"
+      params["is_first_mover"]["1"] = "1"
+      expect{ Game.create_by_params(params) }.to raise_error("duplicate first mover")
     end
   end
 end
