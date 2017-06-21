@@ -49,5 +49,16 @@ RSpec.describe Game, type: :model do
       params["role"]["1"] = "1"
       expect{ Game.create_by_params(params) }.to raise_error("duplicate role")
     end
+
+    it 'create fails with empty score' do
+      params["score"]["0"] = ""
+      expect{ Game.create_by_params(params) }.to raise_error("score empty")
+    end
+
+    it 'create fails with duplicate last traveller' do
+      params["is_last_traveller"]["0"] = "1"
+      params["is_last_traveller"]["1"] = "1"
+      expect{ Game.create_by_params(params) }.to raise_error("duplicate last traveller")
+    end
   end
 end

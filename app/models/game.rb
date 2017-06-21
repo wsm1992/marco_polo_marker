@@ -41,8 +41,12 @@ class Game < ActiveRecord::Base
     def validate_params(params)
       users = params[:user]
       roles = params[:role]
+      scores = params[:score]
+      is_lasts = params[:is_last_traveller]
       raise 'duplicate user' unless users.length == users.values.uniq.length
       raise 'duplicate role' unless roles.length == roles.values.uniq.length
+      raise 'score empty' unless !scores.values.include?("")
+      raise 'duplicate last traveller' unless is_lasts.values.count("1") <= 1
     end
   end
 end
