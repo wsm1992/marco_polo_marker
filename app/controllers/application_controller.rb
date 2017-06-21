@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
   def handle_error(e)
     Rails.logger.error e.message
     Rails.logger.error e.backtrace
+    puts e.message
+    puts e.backtrace
     result = {}
     result[:error_code] = e.message
     result[:error_msg] = e.backtrace.join("<br/>") unless e.class == RuntimeError 
