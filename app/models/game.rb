@@ -21,6 +21,7 @@ class Game < ActiveRecord::Base
   class << self
     def create_by_params(params)
       params = params.symbolize_keys
+      validate_params(params)
       players = []
       4.times do |i|
         user_id = params[:user]["#{i}"].to_i
@@ -34,6 +35,14 @@ class Game < ActiveRecord::Base
       game.players = players
       game.save!
       game
+    end
+
+    private
+    def validate_params(params)
+      users = params[:user]
+      roles = params[:role]
+      raise 'duplicate user' unless users.length == users.values.uniq.length
+      raise 'duplicate role' unless roles.length == roles.values.uniq.length
     end
   end
 end
