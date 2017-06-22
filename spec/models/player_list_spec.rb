@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe PlayerList, type: :model do
-  let(:user){ User.new(name: 'user') }
-  let(:role){ Role.new(name: 'role') }
+  let(:user){ User.first }
+  let(:role){ Role.first }
   let(:players){ [] }
   before do
     4.times do |i|
@@ -31,5 +31,13 @@ RSpec.describe PlayerList, type: :model do
 
   it 'get min score' do
     expect(subject.min_score).to eq 50
+  end
+
+  it 'get user count' do
+    expect(subject.user_count).to eq ({1 => 4})
+  end
+
+  it 'get role count' do
+    expect(subject.role_count).to eq ({1 => 4})
   end
 end
