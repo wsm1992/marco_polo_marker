@@ -21,5 +21,13 @@
     <td><%= game.avg_score %></td>
   </tr>
   <% end %>
+  <tr>
+    <td>-</td>
+    <td>平均</td>
+    <% 4.times do |i|%>
+      <td><%= @player_lists[i].avg_score %></td>
+    <% end %>
+    <td><%= @total_avg_score %></td>
+  </tr>
 </table>
 
