@@ -32,28 +32,32 @@
   </tr>
 </table>
 <br/>
-<table>
-  <tr>
-    <th>玩家</th>
-    <th>次數</th>
-  <% @player_list.user_count.each do |k,v| %>
+<% if @hash[:user_id].nil? %>
+  <table>
     <tr>
-      <td><%= User.find_by_id(k).name %></td>
-      <td><%= v %></td>
+      <th>玩家</th>
+      <th>次數</th>
+    <% @player_list.user_count.each do |k,v| %>
+      <tr>
+        <td><%= User.find_by_id(k).name %></td>
+        <td><%= v %></td>
+      </tr>
+    <% end %>
     </tr>
-  <% end %>
-  </tr>
-</table>
-<br/>
-<table>
-  <tr>
-    <th>角色</th>
-    <th>次數</th>
-  <% @player_list.role_count.each do |k,v| %>
+  </table>
+  <br/>
+<% end %>
+<% if @hash[:role_id].nil? %>
+  <table>
     <tr>
-      <td><%= Role.find_by_id(k).name %></td>
-      <td><%= v %></td>
+      <th>角色</th>
+      <th>次數</th>
+    <% @player_list.role_count.each do |k,v| %>
+      <tr>
+        <td><%= Role.find_by_id(k).name %></td>
+        <td><%= v %></td>
+      </tr>
+    <% end %>
     </tr>
-  <% end %>
-  </tr>
-</table>
+  </table>
+<% end %>
