@@ -10,6 +10,10 @@ class Game < ActiveRecord::Base
       self.send "#{ORDERS[i]}_player_id=", players[i].id
     end
   end
+
+  def avg_score
+    players.map{ |player| player.score}.inject{|sum, score| sum + score } / players.length.to_f
+  end
   
   [:first, :second, :third, :fourth].each do |order|
     define_method("#{order}_player") do

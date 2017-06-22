@@ -8,6 +8,7 @@
     <th>player 2</th>
     <th>player 3</th>
     <th>player 4</th>
+    <th>平均</th>
   </tr>
   <% @games.each do |game| %>
   <tr>
@@ -17,6 +18,7 @@
     <td><% player_info(game.players[1]) %></td>
     <td><% player_info(game.players[2]) %></td>
     <td><% player_info(game.players[3]) %></td>
+    <td><%= game.avg_score %></td>
   </tr>
   <% end %>
 </table>

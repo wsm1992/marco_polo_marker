@@ -23,6 +23,10 @@ RSpec.describe Game, type: :model do
         expect(subject.players[i]).to eq players[i]
       end
     end
+
+    it 'get avg score' do
+      expect(subject.avg_score).to eq 50
+    end
   end
 
   describe 'Game' do
