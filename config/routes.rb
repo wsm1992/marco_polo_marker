@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root to: 'game#new'
+  get 'player/summary'
+
+  root to: 'game#list'
   post 'game/create'
 
   get 'game/new'

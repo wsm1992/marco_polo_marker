@@ -5,6 +5,7 @@ class PlayerList
   end
 
   def scores
+    return [0] if players.length == 0
     players.map{ |player| player.score}
   end
 

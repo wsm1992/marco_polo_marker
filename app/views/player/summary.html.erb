@@ -1,0 +1,44 @@
+<h1>Player#summary</h1>
+<table>
+  <tr>
+    <th/>
+    <th>分數</th>
+  <tr>
+    <td>平均分</td>
+    <td><%= @player_list.avg_score %></td>
+  </tr>
+  <tr>
+    <td>最高分</td>
+    <td><%= @player_list.max_score %></td>
+  </tr>
+  <tr>
+    <td>最低分</td>
+    <td><%= @player_list.min_score %></td>
+  </tr>
+</table>
+<br/>
+<table>
+  <tr>
+    <th>玩家</th>
+    <th>次數</th>
+  <% @player_list.user_count.each do |k,v| %>
+    <tr>
+      <td><%= User.find_by_id(k).name %></td>
+      <td><%= v %></td>
+    </tr>
+  <% end %>
+  </tr>
+</table>
+<br/>
+<table>
+  <tr>
+    <th>角色</th>
+    <th>次數</th>
+  <% @player_list.role_count.each do |k,v| %>
+    <tr>
+      <td><%= Role.find_by_id(k).name %></td>
+      <td><%= v %></td>
+    </tr>
+  <% end %>
+  </tr>
+</table>
