@@ -13,8 +13,13 @@ RSpec.describe PlayerList, type: :model do
   subject{ PlayerList.new(players) }
 
   it { is_expected.to respond_to(:avg_score) }
+  it { is_expected.to respond_to(:scores) }
 
   it 'get average score' do
     expect(subject.avg_score).to eq 51.5
+  end
+
+  it 'get scores' do
+    expect(subject.scores).to eq [50, 51, 52, 53]
   end
 end

@@ -4,7 +4,11 @@ class PlayerList
     @players = players
   end
 
+  def scores
+    players.map{ |player| player.score}
+  end
+
   def avg_score
-    players.map{ |player| player.score}.inject{|sum, score| sum + score } / players.length.to_f    
+    scores.inject{|sum, score| sum + score } / players.length.to_f    
   end
 end
