@@ -1,8 +1,12 @@
 class PlayerController < ApplicationController
   def summary
+    summary = params[:summary] || {user_id: "", role_id: "", is_last_traveller: '0', is_first_mover: '0'}
     hash = {}
-    hash[:user_id] = params[:user_id].to_s unless params[:user_id].nil?
-    hash[:role_id] = params[:role_id].to_s unless params[:role_id].nil?
+    hash[:user_id] = summary[:user_id] unless summary[:user_id] == ""
+    hash[:role_id] = summary[:role_id] unless summary[:role_id] == ""
+    hash[:is_last_traveller] = summary[:is_last_traveller] == '1'
+    hash[:is_first_mover] = summary[:is_first_mover] == '1'
+    @hash = hash
     @player_list = PlayerList.new(Player.where(hash))
   end
 end
