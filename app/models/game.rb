@@ -12,7 +12,7 @@ class Game < ActiveRecord::Base
   end
 
   def avg_score
-    players.map{ |player| player.score}.inject{|sum, score| sum + score } / players.length.to_f
+    PlayerList.new(players).avg_score
   end
   
   [:first, :second, :third, :fourth].each do |order|
