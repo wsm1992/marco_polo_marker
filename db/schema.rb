@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170621134428) do
+ActiveRecord::Schema.define(version: 20170623100327) do
 
   create_table "games", force: :cascade do |t|
     t.integer  "first_player_id"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20170621134428) do
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
     t.boolean  "is_first_mover",    default: false
+    t.integer  "game_id"
   end
 
   create_table "roles", force: :cascade do |t|
