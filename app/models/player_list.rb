@@ -9,8 +9,17 @@ class PlayerList
     players.map{ |player| player.score}
   end
 
+  def relative_scores
+    return [0] if players.length == 0
+    players.map{ |player| player.relative_score}
+  end
+
   def avg_score
     scores.inject{|sum, score| sum + score } / players.length.to_f    
+  end
+
+  def avg_relative_score
+    relative_scores.inject{|sum, score| sum + score } / players.length.to_f    
   end
 
   def max_score

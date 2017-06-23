@@ -6,7 +6,8 @@ RSpec.describe PlayerList, type: :model do
   let(:players){ [] }
   before do
     4.times do |i|
-      player = Player.new(user: user, role: role, score: 50 + i, is_last_traveller: false, is_first_mover: true) 
+      player = Player.new(user: user, role: role, score: 50 + i, is_last_traveller: false, is_first_mover: true)
+      allow(player).to receive(:relative_score).and_return(i)
       players << player
     end
   end
@@ -39,5 +40,13 @@ RSpec.describe PlayerList, type: :model do
 
   it 'get role count' do
     expect(subject.role_count).to eq ({1 => 4})
+  end
+
+  it 'get relative scores' do
+    expect(subject.relative_scores).to eq [0, 1, 2, 3]
+  end
+
+  it 'get average relative scores' do
+    expect(subject.avg_relative_score).to eq 1.5
   end
 end
