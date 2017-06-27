@@ -2,7 +2,11 @@ class Game < ActiveRecord::Base
   has_many :players
 
   def avg_score
-    PlayerList.new(players).avg_score
+    player_list.avg_score
+  end
+
+  def player_list
+    @player_list ||= PlayerList.new(players)
   end
 
   class << self
