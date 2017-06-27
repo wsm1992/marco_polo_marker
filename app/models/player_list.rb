@@ -38,6 +38,10 @@ class PlayerList
     scores.standard_deviation
   end
 
+  def relative_standard_deviation
+    relative_scores.standard_deviation
+  end
+
   def user_count
     result = {}
     players.each do |p|
