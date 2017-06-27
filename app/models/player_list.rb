@@ -15,11 +15,11 @@ class PlayerList
   end
 
   def avg_score
-    scores.inject{|sum, score| sum + score } / players.length.to_f    
+    scores.mean
   end
 
   def avg_relative_score
-    relative_scores.inject{|sum, score| sum + score } / players.length.to_f    
+    relative_scores.mean
   end
 
   def max_score
