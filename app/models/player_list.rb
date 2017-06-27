@@ -65,6 +65,6 @@ class PlayerList
         result[key] += 1
       end
     end
-    result
+    result.sort.to_h
   end
 end

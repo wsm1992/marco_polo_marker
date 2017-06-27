@@ -14,6 +14,7 @@
   <br/>
   <%= submit_tag 'search' %>
 <% end %>
+
 <table>
   <tr>
     <th/>
@@ -31,7 +32,7 @@
     <td><%= @player_list.avg_relative_score %></td>
   </tr>
   <tr>
-    <td>相對1標準差</td>
+    <td>相對標準差</td>
     <td><%= @player_list.relative_standard_deviation %></td>
   </tr>
   <tr>
@@ -44,6 +45,20 @@
   </tr>
 </table>
 <br/>
+
+<table>
+  <tr>
+    <th>名次</th>
+    <th>次數</th>
+  <% @player_list.ranking_count.each do |k,v| %>
+    <tr>
+      <td><%= "第#{k}" %></td>
+      <td><%= v %></td>
+    </tr>
+  <% end %>
+  </tr>
+</table>
+
 <% if @hash[:user_id].nil? %>
   <table>
     <tr>
@@ -59,6 +74,7 @@
   </table>
   <br/>
 <% end %>
+
 <% if @hash[:role_id].nil? %>
   <table>
     <tr>
