@@ -34,6 +34,10 @@ class PlayerList
     scores.median
   end
 
+  def standard_deviation
+    scores.standard_deviation
+  end
+
   def user_count
     result = {}
     players.each do |p|

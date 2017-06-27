@@ -53,4 +53,8 @@ RSpec.describe PlayerList, type: :model do
   it 'get median score' do
     expect(subject.median_score).to eq 51.5
   end
+
+  it 'get standard deviation' do
+    expect(subject.standard_deviation).to eq Math.sqrt(5/4.0)
+  end
 end
