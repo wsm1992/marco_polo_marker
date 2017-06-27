@@ -49,4 +49,8 @@ RSpec.describe PlayerList, type: :model do
   it 'get average relative scores' do
     expect(subject.avg_relative_score).to eq 1.5
   end
+
+  it 'get median score' do
+    expect(subject.median_score).to eq 51.5
+  end
 end

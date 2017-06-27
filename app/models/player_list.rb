@@ -30,6 +30,10 @@ class PlayerList
     scores.min
   end
 
+  def median_score
+    scores.median
+  end
+
   def user_count
     result = {}
     players.each do |p|
