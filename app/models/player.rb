@@ -6,4 +6,9 @@ class Player < ActiveRecord::Base
   def relative_score
     score - game.avg_score
   end
+
+  def ranking
+    scores = game.player_list.scores
+    scores.count{ |s| s > score } + 1
+  end
 end

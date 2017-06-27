@@ -41,4 +41,10 @@ RSpec.describe Player, type: :model do
     Player.create(user: user, role: role, score: 52, is_last_traveller: false, is_first_mover: true, game: game)
     expect(subject.relative_score).to eq -1
   end
+
+  it 'get the ranking' do
+    subject.save
+    Player.create(user: user, role: role, score: 52, is_last_traveller: false, is_first_mover: true, game: game)
+    expect(subject.ranking).to eq 2
+  end
 end
