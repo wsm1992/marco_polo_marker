@@ -43,39 +43,28 @@ class PlayerList
   end
 
   def user_count
-    result = {}
-    players.each do |p|
-      if result[p.user_id].nil?
-        result[p.user_id] = 1
-      else
-        result[p.user_id] += 1
-      end
-    end
-    result
+    attr_count(:user_id)
   end
 
   def role_count
-    result = {}
-    players.each do |p|
-      if result[p.role_id].nil?
-        result[p.role_id] = 1
-      else
-        result[p.role_id] += 1
-      end
-    end
-    result
+    attr_count(:role_id)
   end
 
   def ranking_count
+    attr_count(:ranking)
+  end
+
+  private
+  def attr_count(attr)
     result = {}
     players.each do |p|
-      if result[p.ranking].nil?
-        result[p.ranking] = 1
+      key = p.send attr
+      if result[key].nil?
+        result[key] = 1
       else
-        result[p.ranking] += 1
+        result[key] += 1
       end
     end
     result
   end
-
 end
