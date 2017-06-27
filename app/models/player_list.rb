@@ -65,4 +65,17 @@ class PlayerList
     end
     result
   end
+
+  def ranking_count
+    result = {}
+    players.each do |p|
+      if result[p.ranking].nil?
+        result[p.ranking] = 1
+      else
+        result[p.ranking] += 1
+      end
+    end
+    result
+  end
+
 end

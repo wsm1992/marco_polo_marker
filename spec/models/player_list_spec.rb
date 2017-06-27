@@ -3,10 +3,11 @@ require 'rails_helper'
 RSpec.describe PlayerList, type: :model do
   let(:user){ User.first }
   let(:role){ Role.first }
+  let(:game){ Game.create }
   let(:players){ [] }
   before do
     4.times do |i|
-      player = Player.new(user: user, role: role, score: 50 + i, is_last_traveller: false, is_first_mover: true)
+      player = Player.new(user: user, role: role, score: 50 + i, is_last_traveller: false, is_first_mover: true, game: game)
       allow(player).to receive(:relative_score).and_return(i)
       players << player
     end
@@ -42,6 +43,10 @@ RSpec.describe PlayerList, type: :model do
 
   it 'get role count' do
     expect(subject.role_count).to eq ({1 => 4})
+  end
+  
+  it 'get ranking count' do
+    expect(subject.ranking_count).to eq ({1 => 4})
   end
 
   it 'get relative scores' do
