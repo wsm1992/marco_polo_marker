@@ -61,6 +61,14 @@ RSpec.describe PlayerList, type: :model do
   end
 
   it 'get standard deviation' do
-    expect(subject.standard_deviation(:relative)).to eq Math.sqrt(5/4.0)
+    expect(subject.standard_deviation).to eq Math.sqrt(5/4.0)
+  end
+
+  it 'get relative max score' do
+    expect(subject.max_score(:relative)).to eq 3
+  end
+
+  it 'get relative min score' do
+    expect(subject.min_score(:relative)).to eq 0
   end
 end

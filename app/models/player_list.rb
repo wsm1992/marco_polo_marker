@@ -19,15 +19,18 @@ class PlayerList
     scores.mean
   end
 
-  def max_score
+  def max_score(type = :normal)
+    scores = scores_by_type(type)
     scores.max
   end
 
-  def min_score
+  def min_score(type = :normal)
+    scores = scores_by_type(type)
     scores.min
   end
 
-  def median_score
+  def median_score(type = :normal)
+    scores = scores_by_type(type)
     scores.median
   end
 
