@@ -29,11 +29,11 @@
   </tr>
   <tr>
     <td>相對平均分</td>
-    <td><%= @player_list.avg_relative_score %></td>
+    <td><%= @player_list.avg_score(:relative) %></td>
   </tr>
   <tr>
     <td>相對標準差</td>
-    <td><%= @player_list.relative_standard_deviation %></td>
+    <td><%= @player_list.standard_deviation(:relative) %></td>
   </tr>
   <tr>
     <td>最高分</td>

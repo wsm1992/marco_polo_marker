@@ -14,12 +14,9 @@ class PlayerList
     players.map{ |player| player.relative_score}
   end
 
-  def avg_score
+  def avg_score(type = :normal)
+    scores = scores_by_type(type)
     scores.mean
-  end
-
-  def avg_relative_score
-    relative_scores.mean
   end
 
   def max_score
@@ -34,12 +31,9 @@ class PlayerList
     scores.median
   end
 
-  def standard_deviation
+  def standard_deviation(type = :normal)
+    scores = scores_by_type(type)
     scores.standard_deviation
-  end
-
-  def relative_standard_deviation
-    relative_scores.standard_deviation
   end
 
   def user_count
@@ -66,5 +60,15 @@ class PlayerList
       end
     end
     result.sort.to_h
+  end
+
+  def scores_by_type(type)
+    if type == :relative
+      relative_scores
+    elsif type == :normal
+      scores
+    else
+      [-1]
+    end
   end
 end

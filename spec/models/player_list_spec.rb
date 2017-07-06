@@ -19,7 +19,6 @@ RSpec.describe PlayerList, type: :model do
   it { is_expected.to respond_to(:max_score) }
   it { is_expected.to respond_to(:min_score) }
   it { is_expected.to respond_to(:standard_deviation) }
-  it { is_expected.to respond_to(:relative_standard_deviation) }
 
   it 'get scores' do
     expect(subject.scores).to eq [50, 51, 52, 53]
@@ -54,7 +53,7 @@ RSpec.describe PlayerList, type: :model do
   end
 
   it 'get average relative scores' do
-    expect(subject.avg_relative_score).to eq 1.5
+    expect(subject.avg_score(:relative)).to eq 1.5
   end
 
   it 'get median score' do
@@ -62,6 +61,6 @@ RSpec.describe PlayerList, type: :model do
   end
 
   it 'get standard deviation' do
-    expect(subject.standard_deviation).to eq Math.sqrt(5/4.0)
+    expect(subject.standard_deviation(:relative)).to eq Math.sqrt(5/4.0)
   end
 end
