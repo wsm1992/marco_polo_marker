@@ -1,0 +1,19 @@
+version: '2'
+services:
+  app:
+    build: .
+    command: bundle exec rails server -b 0.0.0.0
+    volumes:
+      - /app
+    expose:
+      - "3000"
+    environment:
+      - SECRET_KEY_BASE=${SECRET_KEY_BASE}
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile-nginx
+    links:
+      - app
+    ports:
+      - "3001:80"
