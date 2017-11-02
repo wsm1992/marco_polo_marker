@@ -29,6 +29,7 @@ COPY . ./
 # Expose port 3000 to the Docker host, so we can access it 
 # from the outside.
 EXPOSE 3000
+RUN rake assets:precompile
 
 # The main command to run when the container starts. Also 
 # tell the Rails dev server to bind to all interfaces by 

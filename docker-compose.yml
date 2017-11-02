@@ -4,7 +4,7 @@ services:
     build: .
     command: bundle exec rails server -b 0.0.0.0
     volumes:
-      - /app
+      - ./:/app
     expose:
       - "3000"
     environment:
@@ -17,3 +17,5 @@ services:
       - app
     ports:
       - "3001:80"
+    volumes:
+      - ./:/app
