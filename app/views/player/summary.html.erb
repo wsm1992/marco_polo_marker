@@ -3,7 +3,7 @@
 <%= form_tag player_summary_path, method: :get do %>
   <tr>
     <td><label>賽季:</label></td>
-    <td><%= select('summary', "season_id", Season.all.collect {|u| [ u.name, u.id ] }, {include_blank: 'all', selected: @hash[:season_id]})%></td>
+    <td><%= select('summary', "season_id", Season.all.collect {|u| [ u.name, u.id ] }, {include_blank: 'all', selected: @hash[:games][:season_id]})%></td>
     <td><label>玩家:</label></td>
     <td><%= select('summary', "user_id", User.all.collect {|u| [ u.name, u.id ] }, {include_blank: 'all', selected: @hash[:user_id]})%></td>
     <td><label>角色:</label></td>

@@ -2,7 +2,7 @@ class Player < ActiveRecord::Base
   belongs_to :user
   belongs_to :role
   belongs_to :game
-  belongs_to :season, through: game
+  has_one :season, through: :game
 
   def relative_score
     score - game.avg_score
