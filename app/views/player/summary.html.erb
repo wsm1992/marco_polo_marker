@@ -2,13 +2,15 @@
 <%= button_to("返回",game_list_path, method: :get) %>
 <%= form_tag player_summary_path, method: :get do %>
   <tr>
+    <td><label>賽季:</label></td>
+    <td><%= select('summary', "season_id", Season.all.collect {|u| [ u.name, u.id ] }, {include_blank: 'all', selected: @hash[:season_id]})%></td>
     <td><label>玩家:</label></td>
     <td><%= select('summary', "user_id", User.all.collect {|u| [ u.name, u.id ] }, {include_blank: 'all', selected: @hash[:user_id]})%></td>
     <td><label>角色:</label></td>
     <td><%= select('summary', "role_id", Role.all.collect {|u| [ u.name, u.id ] }, {include_blank: 'all', selected: @hash[:role_id]})%></td>
     <td><label>只選最後去旅行:</label></td>
     <td><%= check_box('summary', "is_last_traveller", {checked: @hash[:is_last_traveller]}) %></td>
-     <td><label>只選最先行動:</label></td>
+    <td><label>只選最先行動:</label></td>
     <td><%= check_box('summary', "is_first_mover", {checked: @hash[:is_first_mover]}) %></td>
   </tr>
   <br/>
