@@ -11,7 +11,13 @@ RSpec.describe GameController, type: :controller do
 
   describe "POST #create" do
     it "returns success with params" do
-      params = {"user"=>{"0"=>"1", "1"=>"2", "2"=>"3", "3"=>"4"}, "role"=>{"0"=>"1", "1"=>"2", "2"=>"3", "3"=>"4"}, "score"=>{"0"=>"50", "1"=>"50", "2"=>"50", "3"=>"50"}, "is_last_traveller"=>{"0"=>"0", "1"=>"0", "2"=>"0", "3"=>"0"}, "is_first_mover"=>{"0"=>"1", "1"=>"0", "2"=>"0", "3"=>"0"}}
+      params = {
+        "user"=>{"0"=>"1", "1"=>"2", "2"=>"3", "3"=>"4"}, 
+        "role"=>{"0"=>"1", "1"=>"2", "2"=>"3", "3"=>"4"}, 
+        "score"=>{"0"=>"50", "1"=>"50", "2"=>"50", "3"=>"50"}, 
+        "is_last_traveller"=>{"0"=>"0", "1"=>"0", "2"=>"0", "3"=>"0"}, 
+        "is_first_mover"=>{"0"=>"1", "1"=>"0", "2"=>"0", "3"=>"0"},
+        "season"=> "1"}
       post :create, params
       game = Game.last
       4.times do |i|
@@ -21,6 +27,7 @@ RSpec.describe GameController, type: :controller do
         expect(player.score).to eq params["score"][i.to_s].to_i
         expect(player.is_last_traveller).to eq (params["is_last_traveller"][i.to_s] == "1")
       end
+      expect(game.season_id).to eq params["season"].to_i
     end
   end
 end

@@ -14,7 +14,8 @@ class Game < ActiveRecord::Base
     def create_by_params(params)
       params = params.symbolize_keys
       validate_params(params)
-      game = Game.create!
+      season_id = params[:season].to_i
+      game = Game.create!(season_id: season_id)
       4.times do |i|
         user_id = params[:user]["#{i}"].to_i
         role_id = params[:role]["#{i}"].to_i
