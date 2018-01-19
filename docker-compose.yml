@@ -9,6 +9,12 @@ services:
       - "3000"
     environment:
       - SECRET_KEY_BASE=${SECRET_KEY_BASE}
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile-test
+    volumes:
+      - ./:/app
   nginx:
     build:
       context: .
