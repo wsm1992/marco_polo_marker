@@ -1,5 +1,6 @@
 class Game < ActiveRecord::Base
   has_many :players
+  belongs_to :season
 
   def avg_score
     player_list.avg_score

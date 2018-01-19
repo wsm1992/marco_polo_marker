@@ -5,6 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Season.where(id: 1, name: '原版').first_or_create
+Season.where(id: 2, name: '威尼斯擴展').first_or_create
+
 User.where(id: 1, name: 'Siuming').first_or_create
 User.where(id: 2, name: 'Terence').first_or_create
 User.where(id: 3, name: 'Fred').first_or_create
