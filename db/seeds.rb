@@ -25,3 +25,8 @@ Role.where(id: 9, name: '禮物佬').first_or_create
 Role.where(id: 10, name: '起屋佬').first_or_create
 Role.where(id: 11, name: '強盜').first_or_create
 Role.where(id: 12, name: '六張卡').first_or_create
+Role.where(id: 13, name: '左慈').first_or_create
+Role.where(id: 14, name: '隨從佬').first_or_create
+Role.where(id: 15, name: '新六張卡').first_or_create
+Role.where(id: 16, name: '五粒骰').first_or_create
+Role.where(id: 17, name: '踼骰佬').first_or_create
