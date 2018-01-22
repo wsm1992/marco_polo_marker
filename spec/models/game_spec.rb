@@ -30,10 +30,11 @@ RSpec.describe Game, type: :model do
 
   describe 'Game' do
     subject{ Game }
-    let(:params){ {"user"=>{"0"=>"1", "1"=>"2", "2"=>"3", "3"=>"4"}, "role"=>{"0"=>"1", "1"=>"2", "2"=>"3", "3"=>"4"}, "score"=>{"0"=>"50", "1"=>"50", "2"=>"50", "3"=>"50"}, "is_last_traveller"=>{"0"=>"0", "1"=>"0", "2"=>"0", "3"=>"0"}, "is_first_mover"=>{"0"=>"1", "1"=>"0", "2"=>"0", "3"=>"0"}} }
+    let(:params){ {"user"=>{"0"=>"1", "1"=>"2", "2"=>"3", "3"=>"4"}, "role"=>{"0"=>"1", "1"=>"2", "2"=>"3", "3"=>"4"}, "score"=>{"0"=>"50", "1"=>"50", "2"=>"50", "3"=>"50"}, "is_last_traveller"=>{"0"=>"0", "1"=>"0", "2"=>"0", "3"=>"0"}, "is_first_mover"=>{"0"=>"1", "1"=>"0", "2"=>"0", "3"=>"0"}, "game" => {"season_id" => "2"}} }
 
     it 'create by params' do
       game = Game.create_by_params(params)
+      expect(game.season_id).to eq 2
       4.times do |i|
         player = game.players[i]
         expect(player.user.id).to eq params["user"][i.to_s].to_i
