@@ -30,3 +30,4 @@ Role.where(id: 14, name: '隨從佬').first_or_create
 Role.where(id: 15, name: '新六張卡').first_or_create
 Role.where(id: 16, name: '五粒骰').first_or_create
 Role.where(id: 17, name: '踼骰佬').first_or_create
+Role.where(id: 18, name: '思隙趴夫').first_or_create
