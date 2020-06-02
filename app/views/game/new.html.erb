@@ -3,21 +3,33 @@
 <%= form_for @game, url: {action: "create"} do|f| %>
   <tr>
     <td><label>賽季</label></td>
-    <td><%= select("game", "season_id", Season.all.collect {|u| [ u.name, u.id ] }, {selected: 2, include_blank: true})%></td>
+    <td><%= select("game", "season_id", Season.all.collect {|u| [ u.name, u.id ] }, {selected: 3, include_blank: false})%></td>
+  </tr>
+  <tr>
+    <td><label>最先行動:</label></td>
+    <td><%= select("player", 'move', User.all.collect {|u| [ u.name, u.id ] }, {selected:  1, include_blank: false})%></td>
+  </tr>
+  <tr>
+    <td><label>最先選角色:</label></td>
+    <td><%= select("player", 'pick', User.all.collect {|u| [ u.name, u.id ] }, {selected:  1, include_blank: false})%></td>
+  </tr>
+  <tr>
+    <td><label>最後先手權:</label></td>
+    <td><%= select("player", 'travel', User.all.collect {|u| [ u.name, u.id ] }, {selected: 1, include_blank: false})%></td>
   </tr>
   <% (0..3).each do |i| %>
     <tr>
       <td><h5><%= "#{i + 1}."%></h5></td>
       <td><label>邊個玩:</label></td>
-      <td><%= select("user", i, User.all.collect {|u| [ u.name, u.id ] }, {selected: i + 1, include_blank: true})%></td>
+      <td><%= select("user", i, User.all.collect {|u| [ u.name, u.id ] }, {selected: i + 1, include_blank: false})%></td>
       <td><label>邊個角色:</label></td>
       <td><%= select("role", i, Role.all.collect {|u| [ u.name, u.id ] }, {selected: i + 1}) %></td>
       <td><label>分數:</label></td>
       <td><%= number_field("score", i) %></td>
-      <td><label>是否最後去旅行:</label></td>
+      <!--<td><label>是否最後去旅行:</label></td>
       <td><%= check_box("is_last_traveller",  i) %></td>
       <td><label>是否最先行動:</label></td>
-      <td><%= check_box("is_first_mover",  i) %></td>
+      <td><%= check_box("is_first_mover",  i) %></td>-->
     </tr>
     <br/>
   <% end %>

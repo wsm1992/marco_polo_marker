@@ -20,9 +20,11 @@ class Game < ActiveRecord::Base
         user_id = params[:user]["#{i}"].to_i
         role_id = params[:role]["#{i}"].to_i
         score = params[:score]["#{i}"].to_i
-        is_last_traveller = (params[:is_last_traveller]["#{i}"] == "1")
-        is_first_mover = (params[:is_first_mover]["#{i}"] == "1")
-        Player.create(user_id: user_id, role_id: role_id, score: score, is_last_traveller: is_last_traveller, is_first_mover: is_first_mover, game: game)
+        is_last_traveller = params[:player]["travel"] == "#{i + 1}"
+        is_first_mover = params[:player]["move"] == "#{i + 1}" 
+        is_first_picker = params[:player]["pick"] == "#{i + 1}" 
+#        logger.debug(params[:player])
+        Player.create(user_id: user_id, role_id: role_id, score: score, is_last_traveller: is_last_traveller, is_first_mover: is_first_mover, is_first_picker: is_first_picker, game: game)
       end
       game
     end
@@ -32,13 +34,13 @@ class Game < ActiveRecord::Base
       users = params[:user]
       roles = params[:role]
       scores = params[:score]
-      is_lasts = params[:is_last_traveller]
-      is_firsts = params[:is_first_mover]
+      #is_lasts = params[:is_last_traveller]
+      #is_firsts = params[:is_first_mover]
       raise 'duplicate user' unless users.length == users.values.uniq.length
       raise 'duplicate role' unless roles.length == roles.values.uniq.length
       raise 'score empty' unless !scores.values.include?("")
-      raise 'duplicate last traveller' unless is_lasts.values.count("1") <= 1
-      raise 'duplicate first mover' unless is_firsts.values.count("1") <= 1
+      #raise 'duplicate last traveller' unless is_lasts.values.count("1") <= 1
+      #raise 'duplicate first mover' unless is_firsts.values.count("1") <= 1
     end
   end
 end

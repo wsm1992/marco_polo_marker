@@ -1,6 +1,7 @@
 <h1>Game#List</h1>
 <%= button_to("新增", game_new_path, method: :get) %>
 <%= button_to("統計", player_summary_path, method: :get) %>
+<label style="text-decoration:underline">最先行動</label>  <label>最先選角色*</label>  <label style="font-weight:bold">最後先手權</label>
 <table>
   <tr>
     <th>id</th>
@@ -31,4 +32,7 @@
     <td><%= @total_avg_score %></td>
   </tr>
 </table>
+<% Season.all.each do |season| %>
+<%= button_to(season.name, game_list_path, method: 'get', params: {season_id: season.id}) %>
+<% end %>
 
