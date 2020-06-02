@@ -12,6 +12,8 @@
     <td><%= check_box('summary', "is_last_traveller", {checked: @hash[:is_last_traveller]}) %></td>
     <td><label>只選最先行動:</label></td>
     <td><%= check_box('summary', "is_first_mover", {checked: @hash[:is_first_mover]}) %></td>
+    <td><label>只選最先選角色:</label></td>
+    <td><%= check_box('summary', "is_first_picker", {checked: @hash[:is_first_picker]}) %></td>
   </tr>
   <br/>
   <%= submit_tag 'search' %>

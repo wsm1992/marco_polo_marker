@@ -8,7 +8,7 @@ class GameController < ApplicationController
   end
 
   def list
-    season_id = params[:season_id].to_i || Season.max
+    season_id = (params[:season_id] || Season.max).to_i
     @games = Game.where(season_id: season_id)
     @player_lists = []
     (1..4).each do |i|
