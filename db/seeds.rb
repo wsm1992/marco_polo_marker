@@ -7,6 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 Season.where(id: 1, name: '原版').first_or_create
 Season.where(id: 2, name: '威尼斯擴展').first_or_create
+Season.where(id: 3, name: '馬可波羅2').first_or_create
 
 User.where(id: 1, name: 'Siuming').first_or_create
 User.where(id: 2, name: 'Terence').first_or_create
@@ -31,3 +32,21 @@ Role.where(id: 15, name: '新六張卡').first_or_create
 Role.where(id: 16, name: '五粒骰').first_or_create
 Role.where(id: 17, name: '踼骰佬').first_or_create
 Role.where(id: 18, name: '思隙趴夫').first_or_create
+
+Role.where(id: 19, name: '過綠洲').first_or_create
+Role.where(id: 20, name: '攞公會').first_or_create
+Role.where(id: 21, name: '合約玉').first_or_create
+Role.where(id: 22, name: '雙獎勵').first_or_create
+Role.where(id: 23, name: '大城鎮').first_or_create
+Role.where(id: 24, name: '重擲王').first_or_create
+Role.where(id: 25, name: '減路費').first_or_create
+
+Shield.where(id: , name: '太陽').first_or_create
+Shield.where(id: , name: '竹').first_or_create
+Shield.where(id: , name: '雞').first_or_create
+Shield.where(id: , name: '馬騮').first_or_create
+Shield.where(id: , name: '雲').first_or_create
+Shield.where(id: , name: '花').first_or_create
+Shield.where(id: , name: '月亮').first_or_create
+Shield.where(id: , name: '蛇').first_or_create
+Shield.where(id: , name: '飛鏢').first_or_create
