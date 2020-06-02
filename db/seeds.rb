@@ -41,12 +41,12 @@ Role.where(id: 23, name: '大城鎮').first_or_create
 Role.where(id: 24, name: '重擲王').first_or_create
 Role.where(id: 25, name: '減路費').first_or_create
 
-Shield.where(id: , name: '太陽').first_or_create
-Shield.where(id: , name: '竹').first_or_create
-Shield.where(id: , name: '雞').first_or_create
-Shield.where(id: , name: '馬騮').first_or_create
-Shield.where(id: , name: '雲').first_or_create
-Shield.where(id: , name: '花').first_or_create
-Shield.where(id: , name: '月亮').first_or_create
-Shield.where(id: , name: '蛇').first_or_create
-Shield.where(id: , name: '飛鏢').first_or_create
+Shield.where(id: 1, name: '太陽').first_or_create
+Shield.where(id: 2, name: '竹').first_or_create
+Shield.where(id: 3, name: '雞').first_or_create
+Shield.where(id: 4, name: '馬騮').first_or_create
+Shield.where(id: 5, name: '雲').first_or_create
+Shield.where(id: 6, name: '花').first_or_create
+Shield.where(id: 7, name: '月亮').first_or_create
+Shield.where(id: 8, name: '蛇').first_or_create
+Shield.where(id: 9, name: '飛鏢').first_or_create
