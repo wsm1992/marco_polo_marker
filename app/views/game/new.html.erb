@@ -23,7 +23,7 @@
       <td><label>邊個玩:</label></td>
       <td><%= select("user", i, User.all.collect {|u| [ u.name, u.id ] }, {selected: i + 1, include_blank: false})%></td>
       <td><label>邊個角色:</label></td>
-      <td><%= select("role", i, Role.all.collect {|u| [ u.name, u.id ] }, {selected: i + 1}) %></td>
+      <td><%= select("role", i, Role.all.reverse.collect {|u| [ u.name, u.id ] }, {selected: 25 - i }) %></td>
       <td><label>分數:</label></td>
       <td><%= number_field("score", i) %></td>
       <td><label>第一個盾:</label></td>

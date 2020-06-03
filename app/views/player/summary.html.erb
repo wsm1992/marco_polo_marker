@@ -7,7 +7,7 @@
     <td><label>玩家:</label></td>
     <td><%= select('summary', "user_id", User.all.collect {|u| [ u.name, u.id ] }, {include_blank: 'all', selected: @hash[:user_id]})%></td>
     <td><label>角色:</label></td>
-    <td><%= select('summary', "role_id", Role.all.collect {|u| [ u.name, u.id ] }, {include_blank: 'all', selected: @hash[:role_id]})%></td>
+    <td><%= select('summary', "role_id", Role.all.reverse.collect {|u| [ u.name, u.id ] }, {include_blank: 'all', selected: @hash[:role_id]})%></td>
     </br>
     <td><label>只選最後去旅行:</label></td>
     <td><%= check_box('summary', "is_last_traveller", {checked: @hash[:is_last_traveller]}) %></td>
