@@ -20,11 +20,12 @@ class Game < ActiveRecord::Base
         user_id = params[:user]["#{i}"].to_i
         role_id = params[:role]["#{i}"].to_i
         score = params[:score]["#{i}"].to_i
+        first_shield = params[:shield]["#{i}"].to_i
         is_last_traveller = params[:player]["travel"] == "#{i + 1}"
         is_first_mover = params[:player]["move"] == "#{i + 1}" 
         is_first_picker = params[:player]["pick"] == "#{i + 1}" 
 #        logger.debug(params[:player])
-        Player.create(user_id: user_id, role_id: role_id, score: score, is_last_traveller: is_last_traveller, is_first_mover: is_first_mover, is_first_picker: is_first_picker, game: game)
+        Player.create(user_id: user_id, role_id: role_id, score: score, is_last_traveller: is_last_traveller, is_first_mover: is_first_mover, is_first_picker: is_first_picker, first_shield: first_shield, game: game)
       end
       game
     end

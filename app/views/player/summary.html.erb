@@ -1,6 +1,6 @@
 <h1>Player#summary</h1>
 <%= button_to("返回",game_list_path, method: :get) %>
-<%= form_tag player_summary_path, method: :get do %>
+<%= form_tag player_summary_path, method: :get, id: :summary do %>
   <tr>
     <td><label>賽季:</label></td>
     <td><%= select('summary', "season_id", Season.all.collect {|u| [ u.name, u.id ] }, {include_blank: 'all', selected: @hash[:games][:season_id]})%></td>
@@ -8,12 +8,16 @@
     <td><%= select('summary', "user_id", User.all.collect {|u| [ u.name, u.id ] }, {include_blank: 'all', selected: @hash[:user_id]})%></td>
     <td><label>角色:</label></td>
     <td><%= select('summary', "role_id", Role.all.collect {|u| [ u.name, u.id ] }, {include_blank: 'all', selected: @hash[:role_id]})%></td>
+    </br>
     <td><label>只選最後去旅行:</label></td>
     <td><%= check_box('summary', "is_last_traveller", {checked: @hash[:is_last_traveller]}) %></td>
     <td><label>只選最先行動:</label></td>
     <td><%= check_box('summary', "is_first_mover", {checked: @hash[:is_first_mover]}) %></td>
     <td><label>只選最先選角色:</label></td>
     <td><%= check_box('summary', "is_first_picker", {checked: @hash[:is_first_picker]}) %></td>
+    </br>
+    <label>第一個盾:</label>
+    <td><%= select('summary', "first_shield", Shield.all.collect {|u| [ u.name, u.id ] }, {include_blank: 'all', selected: @hash[:first_shield]})%></td>
   </tr>
   <br/>
   <%= submit_tag 'search' %>
@@ -95,3 +99,11 @@
     </tr>
   </table>
 <% end %>
+
+
+<style>
+form#summary label{
+ display: contents;
+ margin: 2em;
+}
+</style>
