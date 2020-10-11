@@ -3,7 +3,7 @@
 <%= form_for @game, url: {action: "create"} do|f| %>
   <tr>
     <td><label>賽季</label></td>
-    <td><%= select("game", "season_id", Season.all.collect {|u| [ u.name, u.id ] }, {selected: 3, include_blank: false})%></td>
+    <td><%= select("game", "season_id", Season.all.collect {|u| [ u.name, u.id ] }, {selected: Season.last.id, include_blank: false})%></td>
   </tr>
   <tr>
     <td><label>最先行動:</label></td>
